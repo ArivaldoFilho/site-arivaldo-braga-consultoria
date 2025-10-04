@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Topografia, georreferenciamento, regularização fundiária e assessoria jurídica imobiliária com atendimento completo e ágil." />
+  <title>Arivaldo Braga • Consultoria • Topografia, Georreferenciamento & Regularização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;          /* fundo bem escuro para contraste elegante */
+      --surface:#0f1730;     /* cartões/nav */
+      --card:#121b3b;        /* cartões destacados */
+      --text:#eef2ff;        /* quase branco azulado */
+      --muted:#b6c3ff;       /* texto secundário */
+      --primary-50:#eff6ff;
+      --primary-100:#dbeafe;
+      --primary-200:#bfdbfe;
+      --primary-300:#93c5fd;
+      --primary-400:#60a5fa;
+      --primary-500:#3b82f6; /* azul principal */
+      --primary-600:#2563eb;
+      --primary-700:#1d4ed8;
+      --primary-800:#1e40af; /* azul mais escuro para bordas */
+      --success:#22c55e;
+      --warning:#f59e0b;
+      --danger:#ef4444;
+      --ring: 0 0 0 4px rgba(59,130,246,.25);
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(2,6,23,.4);
+      --shadow-soft: 0 6px 24px rgba(30,64,175,.35);
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:radial-gradient(1200px 600px at 80% -10%, rgba(37,99,235,.25), transparent 55%),
+      radial-gradient(900px 500px at -10% 10%, rgba(59,130,246,.20), transparent 60%), var(--bg);
+      line-height:1.6; overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--maxw); margin-inline:auto; padding: 0 24px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.2) blur(8px);
+      background:linear-gradient(to bottom, rgba(15,23,48,.75), rgba(15,23,48,.4));
+      border-bottom:1px solid rgba(148,163,184,.08);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .brand .logo{width:38px; height:38px; border-radius:0; display:grid; place-items:center; background:transparent; box-shadow:none} 
+    .brand span{font-size:1.05rem}
+    nav ul{display:flex; gap:20px; list-style:none; padding:0; margin:0}
+    nav a{display:inline-block; padding:8px 12px; border-radius:10px; color:var(--muted)}
+    nav a:hover, nav a:focus{color:var(--primary-100); background:rgba(59,130,246,.08)}
+    .cta{display:flex; gap:12px; align-items:center}
+    .btn{appearance:none; border:1px solid rgba(99,102,241,.25); background:linear-gradient(180deg, rgba(37,99,235,.95), rgba(29,78,216,.95)); color:white; padding:12px 18px; border-radius:14px; font-weight:700; letter-spacing:.2px; box-shadow:var(--shadow); cursor:pointer}
+    .btn:hover{filter:brightness(1.05)}
+    .btn-outline{background:transparent; border:1px solid rgba(99,102,241,.3); color:var(--primary-200)}
+    .btn-outline:hover{background:rgba(37,99,235,.12)}
+    .menu-btn{display:none}
+
+    /* Hero */
+    .hero{padding: clamp(48px, 6vw, 96px) 0 48px; position:relative}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
+    .eyebrow{display:inline-flex; align-items:center; gap:10px; color:var(--primary-200); font-weight:600; letter-spacing:.25px; background:rgba(37,99,235,.12); border:1px solid rgba(37,99,235,.25); padding:8px 12px; border-radius:999px}
+    .eyebrow svg{opacity:.9}
+    h1{font-size: clamp(2rem, 3.6vw, 3.4rem); line-height:1.1; margin:16px 0 14px}
+    .lead{font-size: clamp(1rem, 1.2vw, 1.15rem); color:#cfdbff}
+    .hero-card{background:linear-gradient(145deg, rgba(30,64,175,.6), rgba(15,23,48,.6)); border:1px solid rgba(59,130,246,.25); border-radius:var(--radius); padding:22px; margin-top:26px}
+    .check{display:flex; gap:10px; align-items:flex-start; margin:10px 0; color:var(--primary-100)}
+    .check svg{flex:0 0 auto}
+
+    .hero-form{background:rgba(15,23,48,.65); border:1px solid rgba(59,130,246,.25); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-soft)}
+    .hero-form h3{margin:0 0 10px}
+    .field{display:flex; flex-direction:column; gap:8px; margin:10px 0}
+    label{font-size:.92rem; color:var(--primary-200)}
+    input, select, textarea{background:#0b1430; border:1px solid rgba(148,163,184,.22); color:var(--text); padding:12px 14px; border-radius:12px; outline:none}
+    input:focus, select:focus, textarea:focus{box-shadow:var(--ring); border-color:var(--primary-500)}
+    textarea{min-height:90px; resize:vertical}
+    .small{color:#a8b3e8; font-size:.85rem}
+
+    /* Sections */
+    section{padding: clamp(56px, 7vw, 96px) 0}
+    .section-title{font-size: clamp(1.6rem, 2.4vw, 2.3rem); margin:0 0 14px}
+    .section-sub{color:var(--muted); max-width:800px}
+
+    /* Services */
+    .grid{display:grid; gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:linear-gradient(180deg, rgba(18,27,59,.9), rgba(15,23,48,.9)); border:1px solid rgba(71,85,105,.28); border-radius:var(--radius); padding:22px; transition:transform .2s ease, box-shadow .2s ease; height:100%}
+    .card:hover{transform:translateY(-4px); box-shadow:var(--shadow-soft)}
+    .card h4{margin:12px 0 8px}
+    .badge{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:#dbeafe; background:rgba(37,99,235,.18); border:1px solid rgba(37,99,235,.3); padding:6px 10px; border-radius:999px}
+
+    /* Steps */
+    .steps{counter-reset:step}
+    .step{display:flex; gap:16px; align-items:flex-start; padding:18px; border-radius:14px; border:1px dashed rgba(99,102,241,.2)}
+    .step+.step{margin-top:14px}
+    .step .num{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--primary-700),var(--primary-500)); font-weight:800}
+
+    /* Testimonials */
+    .testimonial{background:linear-gradient(180deg, rgba(18,27,59,.9), rgba(12,19,42,.9)); border:1px solid rgba(71,85,105,.28); border-radius:var(--radius); padding:22px}
+    .quote{color:#dce7ff}
+    .avatar{width:40px; height:40px; border-radius:999px; background:linear-gradient(135deg,var(--primary-400),var(--primary-700))}
+
+    /* FAQ */
+    details{background:rgba(15,23,48,.6); border:1px solid rgba(59,130,246,.2); border-radius:14px; padding:14px 16px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:600}
+
+    /* CTA */
+    .cta-band{background:linear-gradient(135deg, rgba(37,99,235,.25), rgba(2,6,23,.25)); border:1px solid rgba(59,130,246,.25); border-radius:var(--radius); padding:28px; display:grid; grid-template-columns:1.3fr .7fr; gap:20px; align-items:center}
+
+    /* Footer */
+    footer{padding:40px 0; border-top:1px solid rgba(148,163,184,.12); color:#b7c3ff}
+    .foot{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:18px}
+    .copy{margin-top:24px; color:#9fb0ff; font-size:.9rem}
+
+    /* WhatsApp floating */
+    .wa-fab{position:fixed; right:18px; bottom:18px; z-index:60}
+    .wa-fab a{display:flex; align-items:center; gap:10px; background:#1fa855; color:white; padding:12px 16px; border-radius:999px; box-shadow:var(--shadow); font-weight:700}
+    .wa-fab a:hover{filter:brightness(1.05)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; gap:22px}
+      .cta-band{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .foot{grid-template-columns:1fr 1fr}
+      nav ul{display:none}
+      .menu-btn{display:inline-flex; align-items:center; gap:8px}
+    }
+    @media (max-width: 640px){
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+    }
+  </style>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Cabeçalho e navegação principal">
+    <div class="container nav">
+      <a href="#topo" class="brand" aria-label="Página inicial SuaMarca">
+        <div class="logo"><img class="logo-img" src="assets/logo.png" alt="Logo Arivaldo Braga - Consultoria" style="width:100%;height:100%;object-fit:contain;border:none;border-radius:0;background:transparent"/></div>
+        <span>Arivaldo Braga<br><small style="font-weight:600; color: var(--primary-200)">Consultoria</small></span>
+      </a>
+      <nav aria-label="Seções do site">
+        <ul id="nav-list">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Como Trabalhamos</a></li>
+          <li><a href="#cases">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <button class="btn-outline" onclick="scrollToId('contato')">Solicitar orçamento</button>
+        <button class="btn" onclick="openWhatsApp()" aria-label="Falar no WhatsApp agora">WhatsApp</button>
+        <button class="menu-btn btn-outline" onclick="toggleMenu()" aria-label="Abrir menu">☰ Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="topo" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">
+          <!-- pin icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7Z" stroke="#93c5fd"/></svg>
+          Engenharia, Cartório & Jurídico — tudo no mesmo lugar
+        </div>
+        <h1>Topografia, Georreferenciamento e <span style="color:var(--primary-300)">Regularização</span> sem dor de cabeça</h1>
+        <p class="lead">Do levantamento planialtimétrico ao registro em cartório, nossa equipe integra engenharia e assessoria jurídica para entregar segurança, prazos e conformidade legal — especialmente para <strong>imóveis rurais</strong>.</p>
+
+        <div class="hero-card" role="note" aria-label="Diferenciais rápidos">
+          <div class="check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#86efac" stroke-width="2"/></svg>
+            ART, memoriais descritivos e peças técnicas assinadas por responsáveis habilitados
+          </div>
+          <div class="check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#86efac" stroke-width="2"/></svg>
+            Regularização fundiária urbana e rural (REURB) com atuação cartorial completa
+          </div>
+          <div class="check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#86efac" stroke-width="2"/></svg>
+            Consultoria jurídica imobiliária e emissão de certidões, alvarás e licenças
+          </div>
+        </div>
+
+        <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap">
+          <button class="btn" onclick="scrollToId('servicos')">Ver serviços</button>
+          <button class="btn-outline" onclick="scrollToId('contato')">Falar com especialista</button>
+        </div>
+      </div>
+
+      <form class="hero-form" id="waForm" onsubmit="sendWhatsApp(event)" aria-labelledby="waFormTitle">
+        <h3 id="waFormTitle">Atendimento imediato no WhatsApp</h3>
+        <p class="small">Preencha e clique em <em>Falar no WhatsApp</em> — abriremos a conversa com sua mensagem pronta.</p>
+        <div class="field">
+          <label for="nome">Seu nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Souza" required />
+        </div>
+        <div class="field">
+          <label for="servico">Qual serviço você precisa?</label>
+          <select id="servico" name="servico" required>
+            <option value="Topografia e levantamento planialtimétrico">Topografia e levantamento planialtimétrico</option>
+            <option value="Georreferenciamento de imóvel rural">Georreferenciamento (imóvel rural)</option>
+            <option value="Regularização fundiária">Regularização fundiária</option>
+            <option value="Assessoria jurídica imobiliária">Assessoria jurídica imobiliária</option>
+            <option value="Escrituração, registro e certidões">Escrituração, registro, certidões</option>
+            <option value="Legalização documental">Legalização documental (alvarás, licenças)</option>
+            <option value="Consultoria para registro em cartório">Consultoria para registro em cartório / registro de imóveis</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Mensagem (opcional)</label>
+          <textarea id="msg" name="msg" placeholder="Conte em poucas linhas seu caso e município do imóvel..."></textarea>
+        </div>
+        <button class="btn" type="submit">Falar no WhatsApp</button>
+        <p class="small">Tempo médio de resposta: <strong>alguns minutos</strong> em horário comercial.</p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Serviços -->
+  <section id="servicos" aria-labelledby="servicosTitle">
+    <div class="container">
+      <h2 class="section-title" id="servicosTitle">Serviços especializados</h2>
+      <p class="section-sub">Atuamos ponta a ponta com equipe de engenheiros, técnicos e jurídicos para garantir aderência às normas do INCRA, prefeituras e cartórios.</p>
+
+      <div class="grid grid-3" style="margin-top:22px">
+        <div class="card">
+          <span class="badge">Topografia</span>
+          <h4>Levantamento planialtimétrico</h4>
+          <p>Locação de obras, curvas de nível, seções, cadastro técnico e as built. Entregas em DWG, DXF, shapefile e memória descritiva.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Georreferenciamento</span>
+          <h4>Imóveis rurais (INCRA/SIGEF)</h4>
+          <p>Projetos com vértices SIRGAS2000, certificação SIGEF, planilha ODS e peças técnicas conforme norma vigente.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Regularização</span>
+          <h4>Regularização fundiária</h4>
+          <p>REURB, desmembramento, unificação, usucapião administrativo e retificação de área com acompanhamento cartorial.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Jurídico</span>
+          <h4>Assessoria jurídica imobiliária</h4>
+          <p>Análise de matrícula, due diligence, contratos, pareceres e contencioso estratégico quando necessário.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Cartório</span>
+          <h4>Escrituração, registro e certidões</h4>
+          <p>Do preparo à emissão de certidões negativas/positivas, atualização de matrícula e orientação de custos e prazos.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Licenças</span>
+          <h4>Legalização documental</h4>
+          <p>Alvarás, licenças, habite-se e regularização de edificações com projetos e RRT/ART correspondentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que escolher -->
+  <section aria-labelledby="whyTitle">
+    <div class="container">
+      <h2 class="section-title" id="whyTitle">Por que escolher a Arivaldo Braga — Consultoria?</h2>
+      <div class="grid grid-4" style="margin-top:10px">
+        <div class="card">
+          <h4>Equipe integrada</h4>
+          <p>Engenharia + jurídico + cartório. Um único responsável coordena tudo e poupa seu tempo.</p>
+        </div>
+        <div class="card">
+          <h4>Conformidade garantida</h4>
+          <p>Seguimos normas ABNT, leis de registros públicos e exigências de órgãos como INCRA e prefeituras.</p>
+        </div>
+        <div class="card">
+          <h4>Transparência de prazos</h4>
+          <p>Cronogramas claros e checkpoints por etapa, com atualização ativa via WhatsApp.</p>
+        </div>
+        <div class="card">
+          <h4>Dados e tecnologia</h4>
+          <p>GNSS/RTK, drones e SIG para precisão e rastreabilidade dos levantamentos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Processo -->
+  <section id="processo" aria-labelledby="procTitle">
+    <div class="container">
+      <h2 class="section-title" id="procTitle">Como trabalhamos</h2>
+      <div class="steps" style="margin-top:14px">
+        <div class="step">
+          <div class="num">1</div>
+          <div><strong>Briefing e diagnóstico</strong><br><span class="muted">Entendimento do caso, documentos e objetivos.</span></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div><strong>Levantamento de campo</strong><br><span class="muted">Topografia, limites, marcos e confrontantes.</span></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div><strong>Projeto e peças técnicas</strong><br><span class="muted">Memorial, plantas, ART/RRT e dossiê.</span></div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div><strong>Protocolos e acompanhamento</strong><br><span class="muted">SIGEF, prefeitura e cartórios até o deferimento.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos / Casos -->
+  <section id="cases" aria-labelledby="casesTitle">
+    <div class="container">
+      <h2 class="section-title" id="casesTitle">Resultados que falam por si</h2>
+      <div class="grid grid-3" style="margin-top:14px">
+        <figure class="testimonial">
+          <blockquote class="quote">“Resolveram um impasse de matrícula que durava anos. Em 60 dias eu tinha a escritura registrada.”</blockquote>
+          <figcaption style="display:flex; align-items:center; gap:10px; margin-top:12px">
+            <div class="avatar" aria-hidden="true"></div>
+            <div><strong>Marcos T.</strong><br><span class="muted">Produtor rural</span></div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote class="quote">“Equipe técnica muito precisa no georreferenciamento e atenta às exigências do INCRA.”</blockquote>
+          <figcaption style="display:flex; align-items:center; gap:10px; margin-top:12px">
+            <div class="avatar" aria-hidden="true"></div>
+            <div><strong>Helena S.</strong><br><span class="muted">Eng. Civil</span></div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote class="quote">“Do orçamento ao cartório, tudo foi conduzido com clareza. Recomendo.”</blockquote>
+          <figcaption style="display:flex; align-items:center; gap:10px; margin-top:12px">
+            <div class="avatar" aria-hidden="true"></div>
+            <div><strong>Rafael A.</strong><br><span class="muted">Incorporador</span></div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faqTitle">
+    <div class="container">
+      <h2 class="section-title" id="faqTitle">Perguntas frequentes</h2>
+      <div style="max-width:900px; margin-top:12px">
+        <details>
+          <summary>Quanto tempo leva o georreferenciamento de um imóvel rural?</summary>
+          <div style="margin-top:8px; color:#d0ddff">Varia conforme área, confrontantes e pendências documentais. Em média, de 30 a 90 dias entre levantamento, certificação e cartório.</div>
+        </details>
+        <details>
+          <summary>Vocês atuam apenas na região?</summary>
+          <div style="margin-top:8px; color:#d0ddff">Atendemos em todo o território nacional com rede de parceiros e equipes de campo.</div>
+        </details>
+        <details>
+          <summary>Consigo um orçamento rápido?</summary>
+          <div style="margin-top:8px; color:#d0ddff">Sim. Envie área (ha/m²), localização e objetivo no WhatsApp e retornamos com estimativa e etapas.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Contato -->
+  <section id="contato" aria-labelledby="contatoTitle">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2 class="section-title" id="contatoTitle">Pronto para regularizar seu imóvel com segurança?</h2>
+          <p class="section-sub">Converse agora mesmo com nossa equipe técnica e jurídica. Atendimento humano, prazos realistas e transparência total.</p>
+        </div>
+        <form onsubmit="sendWhatsApp(event)">
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:10px">
+            <input id="nome2" type="text" placeholder="Seu nome" aria-label="Seu nome">
+            <select id="servico2" aria-label="Serviço de interesse">
+              <option>Topografia e levantamento planialtimétrico</option>
+              <option>Georreferenciamento (imóvel rural)</option>
+              <option>Regularização fundiária</option>
+              <option>Assessoria jurídica imobiliária</option>
+              <option>Escrituração, registro e certidões</option>
+              <option>Legalização documental (alvarás, licenças)</option>
+              <option>Consultoria para registro em cartório</option>
+            </select>
+          </div>
+          <textarea id="msg2" placeholder="Mensagem (opcional)"></textarea>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn" type="submit">Falar no WhatsApp</button>
+            <button class="btn-outline" type="button" onclick="scrollToId('servicos')">Ver detalhes dos serviços</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="foot">
+        <div>
+          <div class="brand">
+            <div class="logo"><img class="logo-img" src="assets/logo.png" alt="Logo Arivaldo Braga - Consultoria" style="width:100%;height:100%;object-fit:contain;border:none;border-radius:0;background:transparent"/></div>
+            <span>Arivaldo Braga<br><small style="font-weight:600; color: var(--primary-200)">Consultoria</small></span>
+          </div>
+          <p style="color:#c6d3ff; margin-top:12px">CREA/CAU: 000000 | OAB: 000000 — Atendimento: Seg a Sex, 8h às 18h</p>
+        </div>
+        <div>
+          <h4 style="margin:6px 0 8px">Contato</h4>
+          <p style="margin:6px 0">WhatsApp: <a href="#" onclick="openWhatsApp();return false;">(98) 99117-0304</a></p>
+          <p style="margin:6px 0">E-mail: <a href="mailto:arivaldobraga@hotmail.com">arivaldobraga@hotmail.com</a></p>
+          <p style="margin:6px 0">Endereço: Rua Exemplo, 123 — Centro</p>
+        </div>
+        <div>
+          <h4 style="margin:6px 0 8px">Links úteis</h4>
+          <p><a href="#servicos">Serviços</a></p>
+          <p><a href="#processo">Como trabalhamos</a></p>
+          <p><a href="#faq">FAQ</a></p>
+        </div>
+      </div>
+      <div class="copy">© <span id="year"></span> Arivaldo Braga — Consultoria. Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <div class="wa-fab">
+    <a href="#" onclick="openWhatsApp();return false;" aria-label="Abrir conversa no WhatsApp">
+      <!-- WA icon -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 00-8.5 14.82L2 22l5.33-1.48A9.9 9.9 0 1012.04 2Z" fill="#fff" opacity=".2"/><path d="M12.02 4.5a7.5 7.5 0 00-6.44 11.23l-.41.73-.59 1.05 1.2-.33.89-.24.73-.2A7.5 7.5 0 1012.02 4.5Zm3.89 9.66c-.17.48-.98.92-1.37.98-.35.06-.8.09-1.29-.08-.3-.1-.68-.22-1.17-.43-2.06-.9-3.41-3-3.52-3.15-.1-.15-.84-1.11-.84-2.12 0-1 .53-1.5.72-1.71.19-.21.41-.26.55-.26h.39c.12 0 .29-.04.45.34.17.41.59 1.41.64 1.52.05.1.08.22.02.36-.06.15-.1.24-.2.37-.1.12-.2.27-.28.36-.09.1-.19.21-.08.41.1.21.46.76.99 1.23.68.6 1.25.8 1.46.9.22.1.35.09.48-.05.13-.13.55-.64.7-.86.15-.21.3-.18.5-.11.2.07 1.27.6 1.49.7.22.1.36.16.41.25.06.1.06.55-.11 1.03Z" fill="#fff"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // ==== CONFIGURAÇÕES RÁPIDAS ====
+    // Substitua pelo número oficial do WhatsApp (somente dígitos com DDI + DDD). Ex.: +5585987654321
+    const WHATSAPP_NUMBER = "+5598991170304";
+
+    // Texto padrão caso usuário não preencha a mensagem
+    const DEFAULT_MESSAGE = "Olá! Gostaria de falar sobre serviços de topografia/regularização.";
+
+    // ==== UX helpers ====
+    const scrollToId = (id) => {
+      const el = document.getElementById(id);
+      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }
+
+    const toggleMenu = () => {
+      const ul = document.getElementById('nav-list');
+      const visible = getComputedStyle(ul).display !== 'none';
+      ul.style.display = visible ? 'none' : 'flex';
+      ul.style.flexDirection = 'column';
+      ul.style.gap = '12px';
+      ul.style.marginTop = '12px';
+      ul.style.background = 'rgba(15,23,48,.95)';
+      ul.style.padding = '12px';
+      ul.style.border = '1px solid rgba(59,130,246,.25)';
+      ul.style.borderRadius = '12px';
+    }
+
+    const encodeWA = (text) => encodeURIComponent(text).replace(/%20/g,'+');
+
+    function buildMessage(name, service, message){
+      const lines = [
+        `Olá, sou ${name || 'cliente'}.`,
+        `Tenho interesse em: ${service || 'Serviço imobiliário/engenharia'}.`,
+        message && message.trim() ? `Mensagem: ${message.trim()}` : DEFAULT_MESSAGE
+      ];
+      return lines.filter(Boolean).join('\n');
+    }
+
+    function openWhatsApp(){
+      const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g,'')}?text=${encodeWA(DEFAULT_MESSAGE)}`;
+      window.open(url, '_blank');
+    }
+
+    function sendWhatsApp(e){
+      e.preventDefault();
+      const form = e.target.closest('form');
+      const name = form.querySelector('input[id^="nome"]').value;
+      const serviceEl = form.querySelector('select[id^="servico"]');
+      const service = serviceEl ? serviceEl.value : '';
+      const msgEl = form.querySelector('textarea[id^="msg"]');
+      const msg = msgEl ? msgEl.value : '';
+      const finalMsg = buildMessage(name, service, msg);
+      const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g,'')}?text=${encodeWA(finalMsg)}`;
+      window.open(url, '_blank');
+    }
+
+    // Acessibilidade: foco visível ao navegar por teclado
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Tab') document.body.classList.add('show-focus');
+    });
+
+    // Ano atual no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- SEO JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Arivaldo Braga - Consultoria",
+    "image": "",
+    "url": "",
+    "telephone": "+55 00 0000-0000",
+    "address": {"@type":"PostalAddress","streetAddress":"Rua Exemplo, 123","addressLocality":"Cidade","addressRegion":"UF","postalCode":"00000-000","addressCountry":"BR"},
+    "priceRange": "$$",
+    "areaServed": "Brasil",
+    "sameAs": [],
+    "knowsAbout": [
+      "Topografia","Levantamento planialtimétrico","Georreferenciamento","Regularização fundiária",
+      "Assessoria jurídica imobiliária","Escrituração","Registro de imóveis","Certidões","Alvarás","Licenças"
+    ]
+  }
+  </script>
+</body>
+</html>
